@@ -6,7 +6,7 @@ int maxSubArray(int* nums, int numsSize) {
             sum = nums[i];
         }
         else {
-            sum = nums[i] > sum+nums[i] ? nums[i] : sum+nums[i];
+            sum = nums[i] > sum+nums[i] ? nums[i] : sum+nums[i];   // Can changr to "sum += nums[i];"
         }
         max = max > sum ? max : sum;
     }
