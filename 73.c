@@ -1,3 +1,4 @@
+Sol1:(O(m*n) space)
 void setZeroes(int** matrix, int matrixSize, int* matrixColSize) {
     int table[matrixSize][(*matrixColSize)];
     memset(table, 0, sizeof(table));
@@ -24,4 +25,25 @@ void setZeroes(int** matrix, int matrixSize, int* matrixColSize) {
             }
         }
     }
+}
+
+Sol2:(O(m+n) space)
+void setZeroes(int** matrix, int matrixSize, int* matrixColSize) {
+    int* row = (int*)calloc(matrixSize, sizeof(int));
+    int* col = (int*)calloc((*matrixColSize), sizeof(int));
+    for(int i = 0; i < matrixSize; i++){
+        for(int j = 0; j < (*matrixColSize); j++){
+            if(matrix[i][j] == 0){
+                row[i] = 1;
+                col[j] = 1;
+            }
+        }
+    }
+    for(int i = 0; i < matrixSize; i++){
+        for(int j = 0; j < (*matrixColSize); j++){
+            if(row[i] == 1 || col[j] == 1) matrix[i][j] = 0;
+        }
+    }
+    free(row);
+    free(col);
 }
