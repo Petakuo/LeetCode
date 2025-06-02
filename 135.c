@@ -8,7 +8,7 @@ int candy(int* ratings, int ratingsSize) {
         }
     }
     for(int i = ratingsSize-2; i >= 0; i--){
-        while(ratings[i] > ratings[i+1] && candies[i] <= candies[i+1]){
+        if(ratings[i] > ratings[i+1] && candies[i] <= candies[i+1]){
             candies[i] = candies[i+1]+1;
         }
     }
