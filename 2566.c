@@ -5,9 +5,9 @@ int minMaxDifference(int num) {
         len++;
     }
     char* max = (char*)malloc((len+1)*sizeof(char));
-    max[len] = '/0';
+    max[len] = '\0';
     char* min = (char*)malloc((len+1)*sizeof(char));
-    min[len] = '/0';
+    min[len] = '\0';
     temp = num;
     for(int i = 0; i < len; i++){
         max[i] = '0'+temp%10;
