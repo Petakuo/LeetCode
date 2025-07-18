@@ -14,16 +14,13 @@ int gcd(int a, int b){
 struct ListNode* insertGreatestCommonDivisors(struct ListNode* head) {
     if(!head->next) return head;
     struct ListNode* ptr = head;
-    struct ListNode* next = head->next;
-    while(ptr->next){
-        int new = gcd(ptr->val, next->val);
+    while(ptr && ptr->next){
+        int new = gcd(ptr->val, ptr->next->val);
         struct ListNode* newNode = (struct ListNode*)malloc(sizeof(struct ListNode));
-        struct ListNode* temp = ptr->next;
-        ptr->next = newNode;
         newNode->val = new;
-        newNode->next = next;
-        ptr = temp;
-        next = ptr->next;
+        newNode->next = ptr->next;
+        ptr->next = newNode;
+        ptr = newNode->next;
     }
     return head;
 }
