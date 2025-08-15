@@ -14,3 +14,12 @@ Sol2:
 bool isPowerOfFour(int n) {
     return (n > 0) && ((n&(n-1)) == 0) && ((n&0xaaaaaaaa) == 0);
 }
+
+Sol3:
+bool isPowerOfFour(int n) {
+    int pow = 1;
+    while(pow != n && pow < INT_MAX/4){
+        pow *= 4;
+    }
+    return pow == n;
+}
